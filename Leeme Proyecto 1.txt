@@ -1,0 +1,16 @@
+
+
+Contenido del Proyecto en GitHub
+================================
+
+1. proyecto en java (Spring Boot Webflux)
+
+2. Base de Datos (MongoDB)
+   Nombre de archivo: dbBank.txt
+
+3. Diagrama de solución
+   Nombre de Archivo: DiagramaEntidadesBdBank.png
+   Nombre de Archivo: DiagramaBDBank.png
+
+4. Pruebas realizadas en POSTMAN
+   Nombre de archivo: Validacion con POSTMAN.docx
