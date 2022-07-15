@@ -1,0 +1,245 @@
+
+/*
+
+BootCamp BC26  :  Project 1
+DBMS           :  MongoDB
+Base de Datos  :  dbBank
+Script         :  Crea la Base de Datos de Bank
+Autores	       :  ALDO VLADIMIR MARIN JIMENEZ / MARIELLA SILVIA ESCUDERO PIÑE
+
+
+*/
+
+
+use dbBank
+
+db.createCollection("personType")
+
+db.personType.insertOne(
+        {
+          _id : "1",
+		  description  : "PERSONA NATURAL"
+        }
+)
+db.personType.insertOne(
+		{
+          _id : "2",
+		  description  : "PERSONA JURIDICA"
+        }
+)
+
+
+db.createCollection("documentType")
+
+db.documentType.insertOne(
+        {
+          _id : "1",
+		  description  : "DNI"
+        }
+)
+db.documentType.insertOne(
+		{
+          _id : "2",
+		  description  : "RUC"
+        }
+)
+db.documentType.insertOne(
+		{
+          _id : "3",
+		  description  : "CARNET EXTRANJERIA"
+        }
+)
+db.documentType.insertOne(
+		{
+          _id : "4",
+		  description  : "OTRO"
+        }
+)
+
+db.createCollection("accountType")
+
+db.accountType.insertOne(
+        {
+          _id : "232",
+		  description  : "CUENTA AHORROS"
+        }
+)
+db.accountType.insertOne(
+        {
+          _id : "233",
+		  description  : "CUENTA CORRIENTE"
+        }
+)
+db.accountType.insertOne(
+        {
+          _id : "234",
+		  description  : "CUENTA PLAZO FIJO"
+        }
+)
+db.accountType.insertOne(
+        {
+          _id : "101",
+		  description  : "CREDITO PERSONAL"
+        }
+)
+db.accountType.insertOne(
+        {
+          _id : "102",
+		  description  : "CREDITO EMPRESARIAL"
+        }
+)
+db.accountType.insertOne(
+        {
+          _id : "103",
+		  description  : "TARJETA DE CREDITO"
+        }
+)
+
+db.createCollection("operationType")
+
+db.operationType.insertOne(
+        {
+          _id : "1",
+		  description  : "APERTURA DE CUENTA"
+        }
+)
+
+db.operationType.insertOne(
+        {
+          _id : "2",
+		  description  : "DEPOSITO"
+        }
+)
+
+db.operationType.insertOne(
+        {
+          _id : "3",
+		  description  : "RETIRO"
+        }
+)
+
+db.operationType.insertOne(
+        {
+          _id : "4",
+		  description  : "CANCELACION"
+        }
+)
+
+db.createCollection("person")
+
+db.person.insertOne(
+        {
+		 _id : "1",
+		  documentNumber  : "41414141",
+		  documentType : { "_id":"1","description": "DNI" },
+		  name  : "JUAN PEREZ PEREZ",
+		  personType : { "_id":"1", "description": "PERSONA NATURAL" },
+		  address  : "AV. JAVIER PRADO 1234",
+		  phone  : "949494948",
+		  email  : "jperez@gmail.com",
+		  state  : 1
+        }
+)
+
+db.person.insertOne(
+        {
+		 _id : "2",
+		  documentNumber  : "40404040",
+		  documentType : { "_id":"1","description": "DNI" },
+		  name  : "ANTONIO LOPEZ ALBUJAR",
+		  personType : { "_id":"1", "description": "PERSONA NATURAL" },
+		  address  : "AV. 28 DE JULIO 858",
+		  phone  : "990009900",
+		  email  : "alopez@gmail.com",
+		  state  : 1
+        }
+)
+
+db.person.insertOne(
+        {
+		 _id : "3",
+		  documentNumber  : "45675683",
+		  documentType : { "_id":"1","description": "DNI" },
+		  name  : "CARLOS MONTALVAN SANCHEZ",
+		  personType : { "_id":"1", "description": "PERSONA NATURAL" },
+		  address  : "AV. REPUBLICA DE PANAMA 3563",
+		  phone  : "943564564",
+		  email  : "cmontalvan@gmail.com",
+		  state  : 1
+        }
+)
+
+db.person.insertOne(
+        {
+		 _id : "4",
+		  documentNumber  : "20245675683",
+		  documentType : { "_id":"2","description": "RUC" },
+		  name  : "REPRESENTACIONES TECNOLOGICAS SA",
+		  personType : { "_id":"2", "description": "PERSONA JURIDICA" },
+		  address  : "AV. REPUBLICA DE PANAMA 1234",
+		  phone  : "945674560",
+		  email  : "rtecnologicas@gmail.com",
+		  state  : 1
+        }
+)
+
+db.person.insertOne(
+        {
+		 _id : "5",
+		  documentNumber  : "20200000142",
+		  documentType : { "_id":"2","description": "RUC" },
+		  name  : "REPRESENTACIONES PACIFICO SA",
+		  personType : { "_id":"2", "description": "PERSONA JURIDICA" },
+		  address  : "CA. RICARDO PALMA 345",
+		  phone  : "946554643",
+		  email  : "rpacifico@gmail.com",
+		  state  : 1
+        }
+)
+
+db.createCollection("account")
+
+db.account.insertOne(
+        {
+		 _id : "1",
+		  accountNumber  : "2321000001",
+		  accountType  : { "description": "CUENTA AHORROS" },
+		  cardNumber  : "1205120512050001",
+		  personAccount : { "documentNumber": "41414141", "name":"JUAN PEREZ PEREZ", "state": 1 },
+		  dateExpires  : "31/12/2025",
+		  lineAvailable  : 0,
+		  balanceAvailable  : 10000,
+		  state  : 1		  
+        }
+)
+
+db.account.insertOne(
+        {
+		 _id : "7",
+		  accountNumber  : "2321000002",
+		  accountType  : { "description": "CUENTA AHORROS" },
+		  cardNumber  : "1205120512050002",
+		  personAccount : [{ "documentNumber": "20245675683", "name":"REPRESENTACIONES TECNOLOGICAS SA", "state": 1 },
+							{ "documentNumber": "20200000142", "name":"REPRESENTACIONES PACIFICO SA", "state": 1 }
+							],
+		  dateExpires  : "31/12/2025",
+		  lineAvailable  : 0,
+		  balanceAvailable  : 50000,
+		  state  : 1		  
+        }
+)
+
+db.createCollection("movement")
+
+db.movement.insertOne(
+        {
+		 _id : "1",
+		  amount  : 100,
+		  operationType  : { "description": "DEPOSITO" },
+		  accountNumber  : "2321000001",
+		  documentNumber : "41414141",		 
+		  state  : 1		  
+        }
+)
+
+
